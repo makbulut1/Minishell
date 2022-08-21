@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freearr.c                                          :+:      :+:    :+:   */
+/*   ft_gettoken.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 14:10:33 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/21 18:37:36 by makbulut         ###   ########.fr       */
+/*   Created: 2022/08/21 19:21:31 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/21 19:29:54 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "minishell.h"
 
-void    ft_freearr(void **arr, void (*f)(void *))
+t_token *ft_getnexttoken(char *str)
 {
-    int i;
+    static int  i;
+    t_token     *token;
 
+    token = NULL;
+    while (str[i])
+    {
+        token = twochartoken(str, &i);
+    }
+    if (token)
+        return (token);
     i = 0;
-    while (arr && arr[i])
-        f(arr[i++]);
-    free(arr);
+    return (NULL);
 }

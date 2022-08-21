@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 20:19:49 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/21 14:14:41 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/21 19:20:56 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,39 @@
 #include <unistd.h>
 
 t_mini	*g_mini;
+
+int	ft_arrlen(void **arr)
+{
+	int	len;
+
+	len = 0;
+	while (arr && arr[len])
+		len++;
+	return (len);
+}
+
+char	**ft_copyarr_str(char	**arr)
+{
+	char	**ret;
+	int		i;
+
+	ret = ft_calloc(sizeof(char *), ft_arrlen((void **)arr) + 1);
+	i = 0;
+	while (arr && *arr)
+		ret[i++] = ft_strdup(*arr++);
+	return (ret);
+}
+
+void	ft_freearr_str(char **arr)
+{
+	ft_freearr((void **)arr, free);
+}
+
+void	init_mini(char **env)
+{
+	g_mini = ft_calloc(sizeof(t_mini), 1);
+	g_mini->env = ft_copyarr_str(env);
+}
 
 char	*ft_create_prompt(void)
 {
@@ -45,6 +78,31 @@ char	*ft_getinput(void)
 	return(input);
 }
 
+t_token	**ft_tokens(char *str)
+{
+	t_token	**tokens;
+	t_token	*token;
+
+	tokens = NULL;
+	while (1)
+	{
+		token = ft_getnexttoken(str);
+	}
+}
+
+void	ft_execline(char *input)
+{
+	t_token	**tokens;
+	t_pipeline	**pipelines;
+
+	tokens = ft_tokens(input);
+	pipelines = NULL;
+	if (tokens)
+	{
+		;
+	}
+}
+
 void	loop(void)
 {
 	char	*input;
@@ -54,52 +112,16 @@ void	loop(void)
 		input = ft_getinput();
 		if (!input)
 			break;
+		ft_execline(input);
 		free(input);
 	}
-	
-}
-
-int	ft_arrlen(void **arr)
-{
-	int	len;
-
-	len = 0;
-	while (arr && arr[len])
-	{
-		len++;
-	}
-	return (len);
-}
-
-char	**ft_copyarr_str(char	**arr)
-{
-	char	**ret;
-	int		i;
-
-	ret = ft_calloc(sizeof(char *), ft_arrlen((void **)arr) + 1);
-	i = 0;
-	while (arr && *arr)
-	{
-		ret[i++] = ft_strdup(*arr++);
-	}
-	return (ret);
-}
-
-void	ft_freearr_str(char **arr)
-{
-	ft_freearr((void **)arr, free);
-}
-
-void	init_mini(char **env)
-{
-	g_mini = malloc(sizeof(t_mini) * 1);
-	g_mini->env = ft_copyarr_str(env);
 }
 
 int	main(int ac, char **av, char **env)
 {
 	(void)av;
-	int	exit;
+	static int	exit;
+
 	init_mini(env);
 	if(ac == 1)
 		loop();
