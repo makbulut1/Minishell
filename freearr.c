@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   freearr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/21 14:03:56 by makbulut         ###   ########.fr       */
+/*   Created: 2022/08/21 14:10:33 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/21 14:12:10 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include <stdlib.h>
 
-typedef struct s_mini
+void    ft_freearr(void **arr, void (*f)(void *))
 {
-	char			*read;
-	char			**split;
-	int				sigint;
-	int				sigquit;
-	int				exit_status;
-	pid_t			pid;
-	char			**env
-}	t_mini;
+    int i;
 
-typedef struct	s_sig
-{
-	;
-}				t_sig;
-
-#endif
+    i = 0;
+    while (arr && arr[i])
+    {
+        f(arr[i++]);
+    }
+    free(arr);
+}
