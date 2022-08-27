@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freearr.c                                          :+:      :+:    :+:   */
+/*   ft_islogic.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 14:10:33 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 13:48:55 by makbulut         ###   ########.fr       */
+/*   Created: 2022/08/27 18:30:23 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/28 00:01:57 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <stdlib.h>
 
-void    ft_freearr(void **arr, void (*f)(void *))
+int ft_islogic(t_token *tok)
 {
-    int i;
-
-    i = 0;
-    while (arr && arr[i])
-        f(arr[i++]);
-    free(arr);
+    return (tok->type == AND || tok->type == OR);    
 }

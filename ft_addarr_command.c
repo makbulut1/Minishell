@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freearr.c                                          :+:      :+:    :+:   */
+/*   ft_addarr_command.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 14:10:33 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 13:48:55 by makbulut         ###   ########.fr       */
+/*   Created: 2022/08/27 22:40:40 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/27 22:41:16 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <stdlib.h>
 
-void    ft_freearr(void **arr, void (*f)(void *))
+void	ft_addarr_command(t_command ***arr, t_command *new)
 {
-    int i;
-
-    i = 0;
-    while (arr && arr[i])
-        f(arr[i++]);
-    free(arr);
+    ft_addarr((void ***)arr, (void *)new);
 }

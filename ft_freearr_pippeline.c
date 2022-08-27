@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freearr.c                                          :+:      :+:    :+:   */
+/*   ft_freearr_pippeline.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 14:10:33 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 13:48:55 by makbulut         ###   ########.fr       */
+/*   Created: 2022/08/27 18:10:26 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/27 22:32:04 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <stdlib.h>
 
-void    ft_freearr(void **arr, void (*f)(void *))
+void	ft_freepipeline(t_pipeline *p)
 {
-    int i;
+	if (p)
+		ft_freearr_command(p->commands);
+	free(p);
+}
 
-    i = 0;
-    while (arr && arr[i])
-        f(arr[i++]);
-    free(arr);
+void	ft_freearr_pipeline(t_pipeline **pipes)
+{
+	ft_freearr((void **)pipes, (void (*)(void *))ft_freepipeline);
 }

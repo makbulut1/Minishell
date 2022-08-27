@@ -1,18 +1,27 @@
 NAME = minishell
 
-SRC = minishell.c ./42-Libft/*.c
+SRC = $(wildcard *.c)
 
-$(DIR_OBJS) = $(SRC:.c=.o)
+DIR_OBJS = $(SRC:%.c=./obj/%.o)
+
+all : $(NAME)
 
 $(NAME) : $(DIR_OBJS)
-	gcc $(SRC) -l readline -o $(NAME)
+	@make -C 42-Libft
+	@gcc $(SRC) -l readline -o $(NAME) 42-Libft/libft.a
+
+obj/%.o : ./%.c
+	@mkdir -p $(shell dirname $@)
+	@$(CC) -c $< -o $@
 
 re : fclean all
 
 clean :
-	rm -rf  *.o $(NAME)
+	@make clean -C 42-Libft
+	@rm -rf  obj *.o
 
-fclean : clean
-
+fclean :
+	@make fclean -C 42-Libft
+	@rm -rf  obj *.o $(NAME)
 norm :
 	norminette

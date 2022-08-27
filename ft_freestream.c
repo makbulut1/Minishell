@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freearr.c                                          :+:      :+:    :+:   */
+/*   ft_freestream.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 14:10:33 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 13:48:55 by makbulut         ###   ########.fr       */
+/*   Created: 2022/08/27 22:51:53 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/27 22:54:51 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include <stdlib.h>
+#include "minishell.h"
 
-void    ft_freearr(void **arr, void (*f)(void *))
+void	ft_freestream(t_stream *stream)
 {
-    int i;
-
-    i = 0;
-    while (arr && arr[i])
-        f(arr[i++]);
-    free(arr);
+    if (stream)
+    {
+        free(stream->path);
+        free(stream);
+    }
 }

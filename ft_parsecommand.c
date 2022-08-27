@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freearr.c                                          :+:      :+:    :+:   */
+/*   ft_parsecommand.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 14:10:33 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 13:48:55 by makbulut         ###   ########.fr       */
+/*   Created: 2022/08/28 00:09:38 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/28 00:11:32 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <stdlib.h>
 
-void    ft_freearr(void **arr, void (*f)(void *))
-{
-    int i;
 
-    i = 0;
-    while (arr && arr[i])
-        f(arr[i++]);
-    free(arr);
-}
+t_command	*ft_parsecommand(t_token **tokens, int start, int end);

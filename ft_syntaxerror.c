@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freearr.c                                          :+:      :+:    :+:   */
+/*   ft_syntaxerror.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 14:10:33 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 13:48:55 by makbulut         ###   ########.fr       */
+/*   Created: 2022/08/27 18:12:18 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/27 18:18:26 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <stdlib.h>
+#include "42-Libft/libft.h"
 
-void    ft_freearr(void **arr, void (*f)(void *))
+void	ft_syntaxerror(t_token *token)
 {
-    int i;
-
-    i = 0;
-    while (arr && arr[i])
-        f(arr[i++]);
-    free(arr);
+    if (token)
+    {
+        ft_putstr_fd("bash: sytax error near unexpected token `", 2);
+        ft_putstr_fd(token->data ,2);
+        ft_putstr_fd("'\n", 2);
+    }
+    else
+        ft_putstr_fd("bash: sytax error near unexpected token `newline'", 2);   
+    g_mini->return_code = 258;
 }
