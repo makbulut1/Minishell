@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:09:38 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/28 16:46:04 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/28 17:11:03 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ t_command	*ft_parsecommand(t_token **tokens, int start, int end)
             return (errorocurred(cmd));
         start++;
     }
+    return (cmd);
 }
