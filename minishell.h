@@ -6,12 +6,13 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/28 00:10:12 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/28 07:24:37 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+
 # define FT_DEFINES_H
 # define DEP_AND 1
 # define DEP_OR 2
@@ -75,23 +76,24 @@ typedef struct s_mini {
 	char	**env;
 }					t_mini;
 
-extern t_mini	*g_mini;
+extern t_mini		*g_mini;
 
 char		**ft_copyarr_str(char	**arr);
 void		ft_freearr_str(char **arr);
-void    	ft_freearr(void **arr, void (*f)(void *));
+void		ft_freearr(void **arr, void (*f)(void *));
 char		*ft_create_prompt(void);
 char		*ft_getinput(void);
 void		ft_execline(char *input);
 t_pipeline	**ft_parsepipelines(t_token **tokens, int start, int end);
-t_token 	*ft_getnexttoken(char *str);
-t_token 	*ft_getonechartoken(enum e_tokentype type, int *i, char chr);
-t_token		*ft_gettwochartoken(char *str, int *i, enum e_tokentype type, char chr);
+t_token		*ft_getnexttoken(char *str);
+t_token		*ft_getonechartoken(enum e_tokentype type, int *i, char chr);
+t_token		*ft_gettwochartoken(char *str, int *i, enum e_tokentype type, \
+																char chr);
 int			ft_isdelimitter(char chr);
 t_token		*ft_getwordtoken(char *str, int *i);
-int 		ft_isquate(char chr);
-void    	ft_addarr(void ***arr, void *new);
-int 		ft_arrlen(void **arr);
+int			ft_isquate(char chr);
+void		ft_addarr(void ***arr, void *new);
+int			ft_arrlen(void **arr);
 t_token		*ft_createtoken(char *data, enum e_tokentype type);
 int			ft_isspace(char chr);
 void		ft_syntaxerror(t_token *token);

@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 22:10:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 22:11:45 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/28 00:27:55 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_addarr_pipeline(t_pipeline ***arr, t_pipeline *new)
 {
-    ft_addarr((void ***)arr, (void *)new);
+	ft_addarr((void ***)arr, (void *)new);
 }

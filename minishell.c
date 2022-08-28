@@ -6,10 +6,9 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 20:19:49 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 17:42:50 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/28 07:23:06 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -17,7 +16,7 @@
 #include "minishell.h"
 #include <unistd.h>
 
-t_mini	*g_mini;
+extern t_mini	*g_mini;
 
 void	init_mini(char **env)
 {
@@ -33,7 +32,7 @@ void	loop(void)
 	{
 		input = ft_getinput();
 		if (!input)
-			break;
+			break ;
 		ft_execline(input);
 		free(input);
 	}
@@ -41,11 +40,11 @@ void	loop(void)
 
 int	main(int ac, char **av, char **env)
 {
-	(void)av;
 	static int	exit;
 
+	(void)av;
 	init_mini(env);
-	if(ac == 1)
+	if (ac == 1)
 		loop();
 	ft_freearr_str(g_mini->env);
 	free(g_mini);
