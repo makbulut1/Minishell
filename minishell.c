@@ -6,10 +6,9 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 20:19:49 by makbulut          #+#    #+#             */
-/*   Updated: 2022/07/30 21:08:24 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/28 07:23:06 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -17,36 +16,37 @@
 #include "minishell.h"
 #include <unistd.h>
 
-t_sig	g_sig;
-void	sig_int(int code)
+extern t_mini	*g_mini;
+
+void	init_mini(char **env)
 {
-	(void)code;
-	if (g_sig.pid == 0)
-	{
-		ft_putstr_fd("\b\b  ", STDERR);
-		ft_putstr_fd("\n", STDERR);
-		ft_putstr_fd("promter>>", STDERR);
-		g_sig.exit_status = 1;
-	}
-	else
-	{
-		ft_putstr_fd("\n", STDERR);
-		g_sig.exit_status = 130;
-	}
-	g_sig.sigint = 1;
+	g_mini = ft_calloc(sizeof(t_mini), 1);
+	g_mini->env = ft_copyarr_str(env);
 }
 
-int	main(void)
+void	loop(void)
 {
-	t_mini mini;
+	char	*input;
 
-	signal(SIGINT, &sig_int);
-	while (1)
+	while (!g_mini->exitflag)
 	{
-		mini.read = readline("promter>>");
-		mini.split = ft_split(mini.read , ' ');
-		while(*mini.split)
-			ft_putendl_fd(*mini.split++, 1);
+		input = ft_getinput();
+		if (!input)
+			break ;
+		ft_execline(input);
+		free(input);
 	}
-	return (0);
+}
+
+int	main(int ac, char **av, char **env)
+{
+	static int	exit;
+
+	(void)av;
+	init_mini(env);
+	if (ac == 1)
+		loop();
+	ft_freearr_str(g_mini->env);
+	free(g_mini);
+	return (exit);
 }
