@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:09:38 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/28 17:11:03 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/30 18:29:57 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void *errorocurred(t_command *cmd)
 {
     ft_freecommand(cmd);
-    return (NULL)
+    return (NULL);
 }
 
 static  t_command    *createcommand(void)
@@ -39,6 +39,9 @@ int parsetoken(t_token **tokens, int *start, int end, t_command *cmd)
         ft_syntaxerror(tokens[*start]);
         return (0);
     }
+    else if (*start < end && tokens[*start]->type == WORD && \
+                !ft_parsewordtoken(cmd, tokens, *start))
+            return (0);
     else if (*start < end && tokens[*start]->type == HEREDOC && \
                 !ft_parseheredoc(cmd, tokens, start))
             return (0);

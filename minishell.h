@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/28 07:24:37 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/30 18:28:48 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,14 @@ void		ft_addarr_command(t_command ***arr, t_command *new);
 t_command	**ft_parsecommands(t_token **tokens, int start, int end);
 void		ft_freestream(t_stream *stream);
 t_command	*ft_parsecommand(t_token **tokens, int start, int end);
+int 		ft_parsesubshell(t_command *cmd, t_token **tokens, \
+						int *start, int end);
+int			ft_parsewordtoken(t_command *cmd, t_token **tokens, int i);
+void	    ft_addarr_str(char ***arr, char *new);
+int			ft_parseheredoc(t_command *cmd, t_token **tokens, int *i);
+int			ft_heredoc(t_command *cmd);
+int			ft_parseredoutput(t_command *cmd, t_token **tokens, int *i);
+int			ft_parseredinput(t_command *cmd, t_token **tokens, int *i);
+void		ft_addarr_stream(t_stream ***arr, t_stream *new);
 
 #endif

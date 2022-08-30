@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 20:19:49 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/28 07:23:06 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/30 18:31:44 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 #include "minishell.h"
 #include <unistd.h>
 
-extern t_mini	*g_mini;
+t_mini	*g_mini;
 
-void	init_mini(char **env)
+static void	init_mini(char **env)
 {
 	g_mini = ft_calloc(sizeof(t_mini), 1);
 	g_mini->env = ft_copyarr_str(env);
 }
 
-void	loop(void)
+static void	loop(void)
 {
 	char	*input;
 
