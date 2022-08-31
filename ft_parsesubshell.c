@@ -6,14 +6,14 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:43:52 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/30 17:11:07 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:25:22 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "./42-Libft/libft.h"
 
-static int  checkreds(t_command *cmd, t_token **tokens, int *start)
+static int	checkreds(t_command *cmd, t_token **tokens, int *start)
 {
 	if (ft_arrlen((void **)cmd->redirections) > 0)
 	{
@@ -29,10 +29,10 @@ static int  checkreds(t_command *cmd, t_token **tokens, int *start)
 	return (1);
 }
 
-int ft_parsesubshell(t_command *cmd, t_token **tokens, \
+int	ft_parsesubshell(t_command *cmd, t_token **tokens, \
 						int *start, int end)
 {
-	int i;
+	int	i;
 
 	if (!checkreds(cmd, tokens, start))
 		return (0);

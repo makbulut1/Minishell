@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:43:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 17:46:12 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:10:41 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_isdelimitter(char chr)
 {
-    return (ft_isspace(chr) || \
-            chr ==  '>' ||
-            chr == '<'  ||
-            chr == '|' );
+	return (ft_isspace(chr) || \
+			chr == '>' || \
+			chr == '<' || \
+			chr == '|' );
 }

@@ -6,11 +6,11 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:58:36 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 22:26:23 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:11:15 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isquate(char chr)
+int	ft_isquate(char chr)
 {
-    return (chr == '"' || chr == '\'');
+	return (chr == '"' || chr == '\'');
 }

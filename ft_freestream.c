@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 22:51:53 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 22:54:51 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:05:42 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void	ft_freestream(t_stream *stream)
 {
-    if (stream)
-    {
-        free(stream->path);
-        free(stream);
-    }
+	if (stream)
+	{
+		free(stream->path);
+		free(stream);
+	}
 }

@@ -6,13 +6,13 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:10:45 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/30 14:32:04 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:22:37 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_addarr_str(char ***arr, char *new)
+void	ft_addarr_str(char ***arr, char *new)
 {
-    ft_addarr((void ***)arr, (void *)new);
+	ft_addarr((void ***)arr, (void *)new);
 }

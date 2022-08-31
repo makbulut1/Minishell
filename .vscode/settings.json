@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "errno.h": "c",
+        "__locale": "c",
+        "ios": "c",
+        "cstring": "c"
+    }
+}

@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/30 18:28:48 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/08/31 21:04:47 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 # define DEP_OR 2
 # define STREAM_IN 1
 # define STREAM_OUT 2
+
+# define BT_ECHO "echo"
+# define BT_CD "cd"
+# define BT_PWD "pwd"
+# define BT_EXIT "exit"
+# define BT_EXPORT "export"
+# define BT_UNSET "unset"
+# define BT_ENV "env"
 
 enum e_tokentype {
 	WORD,
@@ -108,14 +116,26 @@ void		ft_addarr_command(t_command ***arr, t_command *new);
 t_command	**ft_parsecommands(t_token **tokens, int start, int end);
 void		ft_freestream(t_stream *stream);
 t_command	*ft_parsecommand(t_token **tokens, int start, int end);
-int 		ft_parsesubshell(t_command *cmd, t_token **tokens, \
+int			ft_parsesubshell(t_command *cmd, t_token **tokens, \
 						int *start, int end);
 int			ft_parsewordtoken(t_command *cmd, t_token **tokens, int i);
-void	    ft_addarr_str(char ***arr, char *new);
+void		ft_addarr_str(char ***arr, char *new);
 int			ft_parseheredoc(t_command *cmd, t_token **tokens, int *i);
 int			ft_heredoc(t_command *cmd);
 int			ft_parseredoutput(t_command *cmd, t_token **tokens, int *i);
 int			ft_parseredinput(t_command *cmd, t_token **tokens, int *i);
 void		ft_addarr_stream(t_stream ***arr, t_stream *new);
+void		ft_runpipelines(t_pipeline **pipes);
+void		ft_connectpipes(t_command **cmds);
+void		ft_addarr_int(int **arr, int len, int new);
+void		ft_closepipes(void);
+int			ft_initsubshell(t_command *cmd);
+void		ft_clearsignals(void);
+int			ft_open_reads(t_command *cmd);
+void		ft_puterrno_msg(char *msg);
+void		ft_connectio(t_command *cmd);
+void		ft_puterrno(void);
+int			ft_strcmp(char *str1, char *str2);
+int			ft_isbuiltin(char *command);
 
 #endif

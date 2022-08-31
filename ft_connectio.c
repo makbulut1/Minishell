@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_connectio.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/31 20:43:05 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/31 20:47:46 by makbulut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minishell.h"
+#include <unistd.h>
+
+void	ft_connectio(t_command *cmd)
+{
+	if (cmd->out != 1)
+	{
+		dup2(cmd->out, 1);
+		close(cmd->out);
+		cmd->out = 1;
+	}
+	if (cmd->in != 0)
+	{
+		dup2(cmd->in, 0);
+		close(cmd->in);
+		cmd->in = 0;
+	}
+}
