@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 12:00:40 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:09:47 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/01 14:05:15 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ static void	heredoc_signalhandler(int sig)
 	exit (1);
 }
 
-static int	ft_strcmp(char *str1, char *str2)
-{
-	if (str1 && str2)
-	{
-		while (*str1 && *str2 && *str1 == *str2)
-		{
-			str1++;
-			str2++;
-		}
-		return (*str1 - *str2);
-	}
-	return (1);
-}
+// static int	ft_strcmp(char *str1, char *str2)
+// {
+// 	if (str1 && str2)
+// 	{
+// 		while (*str1 && *str2 && *str1 == *str2)
+// 		{
+// 			str1++;
+// 			str2++;
+// 		}
+// 		return (*str1 - *str2);
+// 	}
+// 	return (1);
+// }
 
 static void	heredocread(char *finish, int fd)
 {

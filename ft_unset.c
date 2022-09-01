@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initbuiltin.c                                   :+:      :+:    :+:   */
+/*   ft_unset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 21:05:15 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 12:30:14 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/01 20:24:26 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/01 20:27:36 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "minishell.h"
+#include "42-Libft/libft.h"
 
-int	ft_initbuiltin(t_command *cmd)
+int	ft_unset(t_command *command)
 {
-	pid_t	pid;
+	int	i;
 
-	if (cmd->in != 0 || cmd->out != 1)
+	i = 0;
+	while (command->arguments[++i])
 	{
-		pid = fork();
-		if (pid == 0)
+		if (ft_env_check(command->arguments[i]))
+			ft_delenv(command->arguments[i]);
+		else
 		{
-			g_mini->exitflag = 1;
-			if (!ft_open_reads(cmd))
-				return (-1);
-			g_mini->return_code = ft_runbuiltin(cmd);
-			ft_closepipes();
-			return (-1);
+			ft_putstr_fd("bash: unset: '", 2);
+			ft_putstr_fd(command->arguments[i], 2);
+			ft_putendl_fd("':not a valid identifier", 2);
 		}
-		return (pid);
 	}
-	if (!ft_open_reads(cmd))
-		return (-1);
-	g_mini->return_code = ft_runbuiltin(cmd);
-	return (-1);
+	return (0);
 }

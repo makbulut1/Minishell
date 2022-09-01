@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initbuiltin.c                                   :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 21:05:15 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 12:30:14 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/01 17:09:29 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/01 17:17:14 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "minishell.h"
+#include "42-Libft/libft.h"
 
-int	ft_initbuiltin(t_command *cmd)
+int	ft_exit(t_command *cmd)
 {
-	pid_t	pid;
-
-	if (cmd->in != 0 || cmd->out != 1)
+	(void)cmd;
+	g_mini->exitflag = 1;
+	if (!g_mini->issubshell && cmd->in == 0 && cmd->out == 1)
+		ft_putendl_fd("exit", 2);
+	if (cmd->arguments[1])
 	{
-		pid = fork();
-		if (pid == 0)
+		if (ft_isnumeric(cmd->arguments[1]))
+			return (ft_atoi(cmd->arguments[1]));
+		else
 		{
-			g_mini->exitflag = 1;
-			if (!ft_open_reads(cmd))
-				return (-1);
-			g_mini->return_code = ft_runbuiltin(cmd);
-			ft_closepipes();
-			return (-1);
+			ft_putstr_fd("bash: exit :", 2);
+			ft_putstr_fd(cmd->arguments[1], 2);
+			ft_putendl_fd(": numeric argument required", 2);
+			return (255);
 		}
-		return (pid);
 	}
-	if (!ft_open_reads(cmd))
-		return (-1);
-	g_mini->return_code = ft_runbuiltin(cmd);
-	return (-1);
+	return (0);
 }

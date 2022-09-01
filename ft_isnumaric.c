@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_runcommand.c                                    :+:      :+:    :+:   */
+/*   ft_isnumaric.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 17:01:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 20:46:32 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/01 17:14:27 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/01 17:17:49 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include <unistd.h>
+#include "42-Libft/libft.h"
 
-int	ft_runcommand(t_command *cmd)
+int	ft_isnumeric(char *str)
 {
-	pid_t	pid;
+	int	i;
 
-	// ft_parsewildcard(cmd, 0, 0);
-	// ft_pars_quote(cmd);
-	if (cmd->subshells)
-		pid = ft_initsubshell(cmd);
-	else if (ft_isbuiltin(cmd->command))
-		pid = ft_initbuiltin(cmd);
+	i = 0;
+	while (str && str[i])
+		if (!ft_isdigit(str[i++]))
+			return (0);
 	return (1);
 }

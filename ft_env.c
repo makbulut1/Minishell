@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initbuiltin.c                                   :+:      :+:    :+:   */
+/*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 21:05:15 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 12:30:14 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/01 20:38:54 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/01 21:08:09 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "minishell.h"
+#include "42-Libft/libft.h"
+#include <stdio.h>
 
-int	ft_initbuiltin(t_command *cmd)
+int	ft_env(t_command *command)
 {
-	pid_t	pid;
+	int	i;
 
-	if (cmd->in != 0 || cmd->out != 1)
+	i = -1;
+	while (g_mini->env[++i])
 	{
-		pid = fork();
-		if (pid == 0)
-		{
-			g_mini->exitflag = 1;
-			if (!ft_open_reads(cmd))
-				return (-1);
-			g_mini->return_code = ft_runbuiltin(cmd);
-			ft_closepipes();
-			return (-1);
-		}
-		return (pid);
+		if (ft_strchr(g_mini->env[i], '='))
+			ft_putendl_fd(g_mini->env[i], command->out);
 	}
-	if (!ft_open_reads(cmd))
-		return (-1);
-	g_mini->return_code = ft_runbuiltin(cmd);
-	return (-1);
+	return (0);
 }

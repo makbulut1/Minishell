@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:00:00 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:02:45 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/01 21:12:29 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	ft_execline(char *input)
 		if (pipelines)
 		{
 			ft_runpipelines(pipelines);
+			ft_freearr_pipeline(pipelines);
 		}
+		// ft_freearr_token(tokens);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 21:04:47 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/01 21:05:27 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define BT_EXIT "exit"
 # define BT_EXPORT "export"
 # define BT_UNSET "unset"
+
 # define BT_ENV "env"
 
 enum e_tokentype {
@@ -128,6 +129,7 @@ void		ft_addarr_stream(t_stream ***arr, t_stream *new);
 void		ft_runpipelines(t_pipeline **pipes);
 void		ft_connectpipes(t_command **cmds);
 void		ft_addarr_int(int **arr, int len, int new);
+int			ft_runcommand(t_command *cmd);
 void		ft_closepipes(void);
 int			ft_initsubshell(t_command *cmd);
 void		ft_clearsignals(void);
@@ -137,5 +139,25 @@ void		ft_connectio(t_command *cmd);
 void		ft_puterrno(void);
 int			ft_strcmp(char *str1, char *str2);
 int			ft_isbuiltin(char *command);
+int			ft_runbuiltin(t_command *cmd);
+int			ft_initbuiltin(t_command *cmd);
+int			ft_cd(t_command *cmd);
+char		*ft_get_value(char *s);
+int			ft_strlenchr(char *s, char c);
+int			ft_getenvindex(char *name);
+void		ft_setenv(char *name, char *value);
+int			ft_exit(t_command *cmd);
+int			ft_isnumeric(char *str);
+int			ft_export(t_command *cmd);
+void		ft_onlyexport(t_command *command);
+char		*ft_get_key(char *s);
+char		*ft_get_value(char *s);
+void		ft_strappend(char **str, char *appendstr);
+int			ft_env_check(char *s);
+int			ft_isalpha_underscore(char c);
+int			ft_is_env(char c);
+int			ft_unset(t_command *command);
+void		ft_delenv(char *name);
+int			ft_env(t_command *command);
 
 #endif

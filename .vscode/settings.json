@@ -3,6 +3,8 @@
         "errno.h": "c",
         "__locale": "c",
         "ios": "c",
-        "cstring": "c"
+        "cstring": "c",
+        "stdlib.h": "c",
+        "algorithm": "c"
     }
 }

@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_runcommand.c                                    :+:      :+:    :+:   */
+/*   ft_strlenchr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 17:01:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 20:46:32 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/01 13:09:45 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/01 14:10:39 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include <unistd.h>
-
-int	ft_runcommand(t_command *cmd)
+int	ft_strlenchr(char *s, char c)
 {
-	pid_t	pid;
+	int	i;
 
-	// ft_parsewildcard(cmd, 0, 0);
-	// ft_pars_quote(cmd);
-	if (cmd->subshells)
-		pid = ft_initsubshell(cmd);
-	else if (ft_isbuiltin(cmd->command))
-		pid = ft_initbuiltin(cmd);
-	return (1);
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
 }

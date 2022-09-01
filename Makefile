@@ -8,7 +8,7 @@ all : $(NAME)
 
 $(NAME) : $(DIR_OBJS)
 	@make -C 42-Libft
-	@gcc $(SRC) -l readline -o $(NAME) 42-Libft/libft.a
+	@gcc $(SRC) -l readline -o $(NAME) 42-Libft/libft.a -ggdb
 
 obj/%.o : ./%.c
 	@mkdir -p $(shell dirname $@)

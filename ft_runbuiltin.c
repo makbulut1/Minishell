@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initbuiltin.c                                   :+:      :+:    :+:   */
+/*   ft_runbuiltin.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 21:05:15 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 12:30:14 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/01 12:59:21 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/01 21:08:23 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "minishell.h"
+#include <stdio.h>
 
-int	ft_initbuiltin(t_command *cmd)
+int	ft_runbuiltin(t_command *cmd)
 {
-	pid_t	pid;
-
-	if (cmd->in != 0 || cmd->out != 1)
-	{
-		pid = fork();
-		if (pid == 0)
-		{
-			g_mini->exitflag = 1;
-			if (!ft_open_reads(cmd))
-				return (-1);
-			g_mini->return_code = ft_runbuiltin(cmd);
-			ft_closepipes();
-			return (-1);
-		}
-		return (pid);
-	}
-	if (!ft_open_reads(cmd))
-		return (-1);
-	g_mini->return_code = ft_runbuiltin(cmd);
-	return (-1);
+	if (ft_strcmp(BT_CD, cmd->command) == 0)
+		return (ft_cd(cmd));
+	else if (ft_strcmp(BT_EXIT, cmd->command) == 0)
+		return (ft_exit(cmd));
+	else if (ft_strcmp(BT_EXPORT, cmd->command) == 0)
+		return (ft_export(cmd));
+	else if (ft_strcmp(BT_UNSET, cmd->command) == 0)
+		return (ft_unset(cmd));
+	else if (ft_strcmp(BT_ENV, cmd->command) == 0)
+		return (ft_env(cmd));
+	return (127);
 }

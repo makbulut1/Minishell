@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initbuiltin.c                                   :+:      :+:    :+:   */
+/*   ft_get_value.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 21:05:15 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 12:30:14 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/01 13:07:15 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/01 13:12:50 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "42-Libft/libft.h"
 #include "minishell.h"
 
-int	ft_initbuiltin(t_command *cmd)
+char	*ft_get_value(char *s)
 {
-	pid_t	pid;
+	int		len;
+	int		lenvalue;
+	char	*value;
 
-	if (cmd->in != 0 || cmd->out != 1)
-	{
-		pid = fork();
-		if (pid == 0)
-		{
-			g_mini->exitflag = 1;
-			if (!ft_open_reads(cmd))
-				return (-1);
-			g_mini->return_code = ft_runbuiltin(cmd);
-			ft_closepipes();
-			return (-1);
-		}
-		return (pid);
-	}
-	if (!ft_open_reads(cmd))
-		return (-1);
-	g_mini->return_code = ft_runbuiltin(cmd);
-	return (-1);
+	len = ft_strlenchr(s, '=');
+	lenvalue = ft_strlen(s + len + 1);
+	if (!lenvalue)
+		return (0);
+	value = ft_substr(s, len + 1, lenvalue);
+	return (value);
 }

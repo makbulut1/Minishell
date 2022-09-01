@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_runcommand.c                                    :+:      :+:    :+:   */
+/*   ft_is_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 17:01:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 20:46:32 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/01 19:10:38 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/01 19:12:31 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include <unistd.h>
-
-int	ft_runcommand(t_command *cmd)
+int	ft_is_env(char c)
 {
-	pid_t	pid;
-
-	// ft_parsewildcard(cmd, 0, 0);
-	// ft_pars_quote(cmd);
-	if (cmd->subshells)
-		pid = ft_initsubshell(cmd);
-	else if (ft_isbuiltin(cmd->command))
-		pid = ft_initbuiltin(cmd);
-	return (1);
+	if (c == '_' || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') \
+		|| (c >= 'A' && c <= '9'))
+		return (1);
+	return (0);
 }
