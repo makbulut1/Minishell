@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 17:01:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 15:39:18 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:58:11 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,25 @@ static void	check_errors(t_command *cmd, char *path)
 	}
 }
 
+char	*ft_path_controler(t_command *cmd, char *cmdpath)
+{
+	if (ft_getenvindex("PATH") != -1)
+		return (cmdpath = ft_find_in_path(cmd->command));
+	return (NULL);
+}
+
 static int	exec_process(t_command *cmd)
 {
 	char	*cmdpath;
 	pid_t	pid;
 
+	cmdpath = NULL;
 	if (!cmd->command)
 	{
 		ft_open_reads(cmd);
 		return (-1);
 	}
-	cmdpath = ft_find_in_path(cmd->command);
+	cmdpath = ft_path_controler(cmd, cmdpath);
 	pid = -1;
 	if (cmdpath)
 	{
@@ -60,7 +68,6 @@ int	ft_runcommand(t_command *cmd)
 {
 	pid_t	pid;
 
-	// ft_parsewildcard(cmd, 0, 0);
 	ft_pars_quote(cmd);
 	if (cmd->subshells)
 		pid = ft_initsubshell(cmd);
