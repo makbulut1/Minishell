@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:46:46 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:08:59 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/03 13:10:23 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	getwordlen(char *str, int *i)
 		if (ft_isquate(str[*i + len]))
 		{
 			block = str[*i + (len++)];
-			while (str[*i] && str[*i + len] != block)
+			while (str[*i + len] && str[*i + len] != block)
 				len++;
 			if (str[*i + len] == block)
 				len++;

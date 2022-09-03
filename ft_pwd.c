@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_addarr.c                                        :+:      :+:    :+:   */
+/*   ft_pwd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 17:18:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/02 14:44:38 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/02 20:09:19 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/02 20:12:41 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "42-Libft/libft.h"
 
-void	ft_addarr(void ***arr, void *new)
+int	ft_pwd(t_command *cmd)
 {
-	void	**ret;
-	int		i;
-	int		k;
+	char	buffer[4096];
 
-	ret = ft_calloc(sizeof(void *), ft_arrlen((void **)*arr) + 2);
-	k = 0;
-	i = 0;
-	while (*arr && (*arr)[k])
-		ret[i++] = (*arr)[k++];
-	ret[i] = new;
-	free(*arr);
-	*arr = ret;
+	getcwd(buffer, 4096);
+	ft_putstr_fd(buffer, cmd->out);
+	return (0);
 }

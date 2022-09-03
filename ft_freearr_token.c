@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_addarr.c                                        :+:      :+:    :+:   */
+/*   ft_freearr_token.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 17:18:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/02 14:44:38 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/02 13:52:31 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/02 14:54:32 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include "42-Libft/libft.h"
 
-void	ft_addarr(void ***arr, void *new)
+void	ft_freearr_token(t_token **tokens)
 {
-	void	**ret;
-	int		i;
-	int		k;
-
-	ret = ft_calloc(sizeof(void *), ft_arrlen((void **)*arr) + 2);
-	k = 0;
-	i = 0;
-	while (*arr && (*arr)[k])
-		ret[i++] = (*arr)[k++];
-	ret[i] = new;
-	free(*arr);
-	*arr = ret;
+	ft_freearr((void **)tokens, (void (*)(void *))ft_freetoken);
 }

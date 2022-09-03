@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 21:05:27 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/03 13:30:00 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,5 +159,18 @@ int			ft_is_env(char c);
 int			ft_unset(t_command *command);
 void		ft_delenv(char *name);
 int			ft_env(t_command *command);
+void		ft_freearr_token(t_token **tokens);
+void		ft_freetoken(t_token *token);
+int			ft_echo(t_command *command);
+int			ft_pwd(t_command *cmd);
+int			ft_initredirects(t_command *cmd);
+void		ft_pars_quote(t_command *cmd);
+void		ft_get_end_numbers_dbquotes(char *s, int *end);
+char		*change_env_with_value(char *s);
+void		ft_replace(char **str, char *a, char *b);
+void		ft_get_end_numbers_quote(char *s, int *end);
+void		ft_get_len_of_word(char *s, int *end);
+char		*ft_getenv(char *name);
+void		ft_clean_array(t_command *cmd);
 
 #endif

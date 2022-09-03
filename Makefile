@@ -8,7 +8,7 @@ all : $(NAME)
 
 $(NAME) : $(DIR_OBJS)
 	@make -C 42-Libft
-	@gcc $(SRC) -l readline -o $(NAME) 42-Libft/libft.a -ggdb
+	@gcc $(SRC) -l readline -o $(NAME) 42-Libft/libft.a -ggdb #-fsanitize=address
 
 obj/%.o : ./%.c
 	@mkdir -p $(shell dirname $@)
@@ -24,4 +24,4 @@ fclean :
 	@make fclean -C 42-Libft
 	@rm -rf  obj *.o $(NAME)
 norm :
-	norminette
+	norminette 

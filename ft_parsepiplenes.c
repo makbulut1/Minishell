@@ -6,13 +6,14 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 18:01:02 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:01:29 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/02 19:43:22 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "42-Libft/libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 static void	*erroroccured(t_pipeline **pipes, t_token *token)
 {
@@ -26,6 +27,12 @@ static t_pipeline	*parsepipeline(t_token **tokens, int start, int end)
 {
 	t_pipeline	*ret;
 
+	if ((tokens[0]->data[0] == '|' ) || \
+	(tokens[0]->data[0] == '|' && tokens[0]->data[1] == '|'))
+	{
+		ft_syntaxerror(*tokens);
+		return (NULL);
+	}
 	if (ft_islogic(tokens[start]))
 		start++;
 	ret = ft_calloc(sizeof(t_pipeline), 1);

@@ -6,13 +6,12 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 20:38:54 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 21:08:09 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/02 19:45:00 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "42-Libft/libft.h"
-#include <stdio.h>
 
 int	ft_env(t_command *command)
 {
