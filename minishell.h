@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 13:30:00 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/03 15:38:17 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,5 +172,12 @@ void		ft_get_end_numbers_quote(char *s, int *end);
 void		ft_get_len_of_word(char *s, int *end);
 char		*ft_getenv(char *name);
 void		ft_clean_array(t_command *cmd);
+char		*ft_find_in_path(char *file);
+int			ft_ispath(char *file);
+char		*ft_find_in_path(char *file);
+int			ft_filexists(char *path);
+int			ft_is_file(char *path);
+int			ft_init_process(t_command *cmd, char *cmdpath);
+void		ft_puterrln(char *msg, char *data);
 
 #endif

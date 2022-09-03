@@ -6,12 +6,55 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 17:01:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 13:06:42 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/03 15:39:18 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <unistd.h>
+#include <stdlib.h>
+
+static void	check_errors(t_command *cmd, char *path)
+{
+	if (ft_filexists(path))
+	{
+		ft_puterrln("is a directory", cmd->command);
+		g_mini->return_code = 126;
+	}
+	else
+	{
+		g_mini->return_code = 127;
+		ft_puterrln("No such file or directory", cmd->command);
+	}
+}
+
+static int	exec_process(t_command *cmd)
+{
+	char	*cmdpath;
+	pid_t	pid;
+
+	if (!cmd->command)
+	{
+		ft_open_reads(cmd);
+		return (-1);
+	}
+	cmdpath = ft_find_in_path(cmd->command);
+	pid = -1;
+	if (cmdpath)
+	{
+		if (ft_is_file(cmdpath))
+			pid = ft_init_process(cmd, cmdpath);
+		else
+			check_errors(cmd, cmdpath);
+	}
+	else
+	{
+		ft_puterrln("command not found", cmd->command);
+		g_mini->return_code = 127;
+	}
+	free(cmdpath);
+	return (pid);
+}
 
 int	ft_runcommand(t_command *cmd)
 {
@@ -25,5 +68,7 @@ int	ft_runcommand(t_command *cmd)
 		pid = ft_initbuiltin(cmd);
 	else if (!cmd->command)
 		pid = ft_initredirects(cmd);
+	else
+		pid = exec_process(cmd);
 	return (1);
 }
