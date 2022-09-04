@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 17:01:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 21:22:01 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 06:52:00 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	check_errors(t_command *cmd, char *path)
 
 char	*ft_path_controler(t_command *cmd, char *cmdpath)
 {
-	if (ft_getenvindex("PATH") != -1)
+	if ((ft_getenvindex("PATH") != -1) || (cmd->command[0] == '/'))
 		return (cmdpath = ft_find_in_path(cmd->command));
 	return (NULL);
 }
@@ -43,7 +43,7 @@ static int	exec_process(t_command *cmd)
 	cmdpath = NULL;
 	if (!cmd->command)
 	{
-		ft_open_reads(cmd);
+		ft_open_reds(cmd);
 		return (-1);
 	}
 	cmdpath = ft_path_controler(cmd, cmdpath);

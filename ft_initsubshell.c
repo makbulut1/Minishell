@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 17:08:55 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 20:42:42 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 05:57:06 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_initsubshell(t_command *cmd)
 	{
 		g_mini->issubshell = 1;
 		ft_clearsignals();
-		if (!ft_open_reads(cmd))
+		if (!ft_open_reds(cmd))
 		{
 			g_mini->exitflag = 1;
 			return (-1);

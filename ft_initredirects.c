@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 20:23:36 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/02 20:25:21 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 05:57:06 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_initredirects(t_command *cmd)
 {
-	if (ft_open_reads(cmd))
+	if (ft_open_reds(cmd))
 	{
 		g_mini->return_code = 0;
 		return (-1);

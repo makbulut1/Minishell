@@ -6,13 +6,11 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:30:37 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 21:21:16 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 06:10:44 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "42-Libft/libft.h"
-
-
 
 static int	new_str_len(char *str, char *a, char *b, char *target)
 {

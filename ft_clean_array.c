@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:23:17 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 13:30:27 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 06:02:54 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	remove_null_string(t_command *cmd, int total_zero)
 	tmp = ft_calloc(sizeof(char *), len - total_zero + 1);
 	i = -1;
 	j = 0;
-	while (cmd->arguments[++i])
+	while (cmd->arguments && cmd->arguments[++i])
 	{
 		if (ft_strlen(cmd->arguments[i]) == 0)
 		{

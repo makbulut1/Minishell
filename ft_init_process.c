@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:30:30 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 15:34:13 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 05:57:06 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_init_process(t_command *cmd, char *cmdpath)
 	if (pid == 0)
 	{
 		ft_clearsignals();
-		if (!ft_open_reads(cmd))
+		if (!ft_open_reds(cmd))
 		{
 			g_mini->exitflag = 1;
 			return (-1);
