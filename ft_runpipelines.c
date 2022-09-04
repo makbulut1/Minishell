@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 21:55:49 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/02 14:17:33 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/03 19:13:01 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	ft_runpipelines(t_pipeline **pipes)
 	int	i;
 
 	i = 0;
+	g_mini->intflag = 1;
 	if (!getheredocs(pipes))
 		return ;
 	if (pipes[i++])

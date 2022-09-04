@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 07:57:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 11:22:31 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/03 20:59:51 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*ft_take_env(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == '$' && s[i + 1] == '?')
+		if (s[i] == '$' && s[i + 1] && s[i + 1] == '?')
 			return (ft_strdup("$?"));
 		else if (s[i] == '$' && s[i + 1] && !ft_isalpha_underscore(s[i + 1]))
 			return (ft_substr(s, i, 2));

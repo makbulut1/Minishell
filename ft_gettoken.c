@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 19:21:31 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:07:07 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 01:12:54 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static t_token	*twochartoken(char *str, int *i)
 
 t_token	*ft_getnexttoken(char *str)
 {
-	static int	i;
+	static int	i = 0;
 	t_token		*token;
 
-	token = 0;
+	token = NULL;
 	while (str[i])
 	{
 		token = twochartoken(str, &i);

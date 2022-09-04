@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:56:55 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:23:00 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 05:09:33 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 char	*ft_create_prompt(void)
 {
-	char	*prompt;
-	char	*cwd;
-	int		len;
+	char		*prompt;
+	char		*cwd;
+	int			len;
 
 	cwd = "\x1b[31mminishell % \x1b[0m";
 	len = ft_strlen(cwd);

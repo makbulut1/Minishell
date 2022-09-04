@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 18:08:48 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 20:50:11 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/03 19:23:52 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	redirectout(t_command *cmd, t_stream *stream)
 {
 	if (cmd->out != 1 && !g_mini->issubshell)
 		close(cmd->out);
-	cmd->out = open(stream->path, getflags(stream), 666);
+	cmd->out = open(stream->path, getflags(stream), 0666);
 	if (cmd->out == -1)
 	{
 		ft_puterrno_msg(stream->path);

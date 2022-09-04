@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 20:19:49 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:18:59 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 01:14:56 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int ac, char **av, char **env)
 	init_mini(env);
 	if (ac == 1)
 		loop();
+	clear_history();
 	ft_freearr_str(g_mini->env);
 	free(g_mini);
 	return (exit);

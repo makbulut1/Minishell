@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 07:29:17 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 13:23:00 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 05:20:35 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ft_check_without_quote(char *s, char **all_tokens, int *index)
 	ft_get_len_of_word(s + (*index), &end);
 	tmp_token = ft_substr(s, *index, end);
 	tmp_env_value = change_env_with_value(tmp_token);
-	ft_strappend(all_tokens, tmp_token);
+	ft_strappend(all_tokens, tmp_env_value);
 	free(tmp_env_value);
 	*index += end;
 }

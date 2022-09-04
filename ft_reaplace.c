@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:30:37 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 11:21:49 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/03 21:21:16 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static char	*replace_str(char *str, char *a, char *b, char *target)
 		len++;
 		i++;
 	}
+	k = 0;
 	while (b[k])
 		ret[j++] = b[k++];
 	while (str[len])
