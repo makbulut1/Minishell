@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:05:14 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 16:13:06 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 06:10:01 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static char	*join_path(char *path, char *file)
 {
 	char	*p;
 	int		i;
-
 
 	i = 0;
 	p = ft_calloc(sizeof(char), ft_strlen(path) + ft_strlen(file) + 2);

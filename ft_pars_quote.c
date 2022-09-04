@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 07:29:17 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/04 05:20:35 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 06:09:52 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ char	*ft_pars_quote_first(char *token)
 void	ft_pars_quote(t_command *cmd)
 {
 	int	i;
-
 
 	if (cmd->command)
 		cmd->command = ft_pars_quote_first(cmd->command);

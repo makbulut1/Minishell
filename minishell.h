@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 15:38:17 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 05:57:06 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ int			ft_runcommand(t_command *cmd);
 void		ft_closepipes(void);
 int			ft_initsubshell(t_command *cmd);
 void		ft_clearsignals(void);
-int			ft_open_reads(t_command *cmd);
+int			ft_open_reds(t_command *cmd);
 void		ft_puterrno_msg(char *msg);
 void		ft_connectio(t_command *cmd);
 void		ft_puterrno(void);

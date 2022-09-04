@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 21:05:15 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 12:30:14 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 05:57:06 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_initbuiltin(t_command *cmd)
 		if (pid == 0)
 		{
 			g_mini->exitflag = 1;
-			if (!ft_open_reads(cmd))
+			if (!ft_open_reds(cmd))
 				return (-1);
 			g_mini->return_code = ft_runbuiltin(cmd);
 			ft_closepipes();
@@ -31,7 +31,7 @@ int	ft_initbuiltin(t_command *cmd)
 		}
 		return (pid);
 	}
-	if (!ft_open_reads(cmd))
+	if (!ft_open_reds(cmd))
 		return (-1);
 	g_mini->return_code = ft_runbuiltin(cmd);
 	return (-1);

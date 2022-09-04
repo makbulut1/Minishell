@@ -6,14 +6,13 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 18:01:02 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/02 19:43:22 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 06:14:01 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "42-Libft/libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 static void	*erroroccured(t_pipeline **pipes, t_token *token)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_open_reads.c                                    :+:      :+:    :+:   */
+/*   ft_open_reds.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 18:08:48 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 19:23:52 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/04 05:55:33 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	redirectin(t_command *cmd, t_stream *stream)
 	return (1);
 }
 
-int	ft_open_reads(t_command *cmd)
+int	ft_open_reds(t_command *cmd)
 {
 	int	i;
 
