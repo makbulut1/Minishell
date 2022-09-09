@@ -5,15 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 20:37:51 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 20:51:31 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/03 00:00:13 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:51:20 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42-Libft/libft.h"
-#include "minishell.h"
+#include <stdio.h>
+#include <unistd.h>
 #include <errno.h>
 #include <string.h>
+#include "minishell.h"
+#include "42-Libft/libft.h"
 
 void	ft_puterrno(void)
 {

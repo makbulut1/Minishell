@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 15:06:47 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 15:10:05 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/11 21:11:56 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:52:43 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_ispath(char *file)
 {
-	if (ft_strncmp("./", file, 2) == 0 \
-		|| ft_strncmp("../", file, 3) == 0 \
-		|| ft_strncmp("/", file, 1) == 0)
+	if (ft_strncmp("./", file, 2) == 0 || \
+		ft_strncmp("/", file, 1) == 0 || \
+		ft_strncmp("../", file, 3) == 0)
 		return (1);
 	return (0);
 }

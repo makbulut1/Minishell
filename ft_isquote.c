@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 15:58:36 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:11:15 by makbulut         ###   ########.fr       */
+/*   Created: 2022/06/25 16:30:47 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:52:40 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isquate(char chr)
+int	ft_isquote(char chr)
 {
 	return (chr == '"' || chr == '\'');
 }

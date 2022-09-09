@@ -5,13 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 20:43:05 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 20:47:46 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/25 23:34:02 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/20 15:11:32 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include <unistd.h>
+#include <fcntl.h>
+#include "minishell.h"
 
 void	ft_connectio(t_command *cmd)
 {

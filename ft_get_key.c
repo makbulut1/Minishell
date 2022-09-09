@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 18:44:20 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 18:45:58 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/23 19:46:00 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:47:48 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include "42-Libft/libft.h"
+#include "minishell.h"
 
 char	*ft_get_key(char *s)
 {

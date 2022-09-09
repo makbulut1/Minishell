@@ -37,15 +37,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (0);
 	return (((unsigned char) s1[index]) - ((unsigned char) s2[index]));
 }
-/*
-int main()
-{
-	char *big = "abcdef";
-	char *little = "abcdefghijklmnop";
-	size_t size = 6;
-	printf( "%d", ft_strncmp(big, little, size));
-	return (0);
-}
-*/
-//	if (n == 0)
-//		return (0);

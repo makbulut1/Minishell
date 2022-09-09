@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 13:13:37 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 13:18:35 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/02 12:14:29 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:53:51 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include "42-Libft/libft.h"
 
 int	ft_getenvindex(char *name)
 {

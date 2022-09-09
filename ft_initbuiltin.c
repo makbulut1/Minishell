@@ -5,13 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 21:05:15 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/04 05:57:06 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/25 23:29:37 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/21 13:23:41 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "minishell.h"
+#include "42-Libft/libft.h"
 
 int	ft_initbuiltin(t_command *cmd)
 {

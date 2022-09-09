@@ -5,20 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 20:19:49 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/04 01:14:56 by makbulut         ###   ########.fr       */
+/*   Created: 2022/06/23 16:27:14 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/09 08:38:13 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <readline/readline.h>
-#include <readline/history.h>
-#include "./42-Libft/libft.h"
-#include "minishell.h"
+#include <stdio.h>
 #include <unistd.h>
+#include "minishell.h"
+#include "42-Libft/libft.h"
 
 t_mini	*g_mini;
 
-static void	init_mini(char **env)
+static void	init_g_mini(char **env)
 {
 	g_mini = ft_calloc(sizeof(t_mini), 1);
 	g_mini->env = ft_copyarr_str(env);
@@ -26,7 +25,7 @@ static void	init_mini(char **env)
 
 static void	loop(void)
 {
-	char	*input;
+	char		*input;
 
 	while (!g_mini->exitflag)
 	{
@@ -38,16 +37,20 @@ static void	loop(void)
 	}
 }
 
+////////////////////
+//      Main
+////////////////////
 int	main(int ac, char **av, char **env)
 {
-	static int	exit;
+	int		exitcode;
 
 	(void)av;
-	init_mini(env);
+	init_g_mini(env);
+	ft_connectsignals();
 	if (ac == 1)
 		loop();
-	clear_history();
+	exitcode = g_mini->return_code;
 	ft_freearr_str(g_mini->env);
 	free(g_mini);
-	return (exit);
+	return (exitcode);
 }

@@ -5,13 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 13:41:58 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 16:57:47 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/16 07:53:25 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:45:55 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include <unistd.h>
+#include <stdio.h>
+#include "minishell.h"
 
 static void	connect_pipe(t_command **cmds, int i, int *p)
 {
@@ -48,7 +49,7 @@ static void	connectsubshells(t_command *cmd, t_pipeline **subshells)
 		if (len > 0)
 		{
 			subshells[k]->commands[0]->in = cmd->in;
-			subshells[k]->commands[0]->out = cmd->out;
+			subshells[k]->commands[len - 1]->out = cmd->out;
 		}
 		k++;
 	}

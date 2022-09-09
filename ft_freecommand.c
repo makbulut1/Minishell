@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 18:56:39 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 23:57:00 by makbulut         ###   ########.fr       */
+/*   Created: 2022/06/30 23:55:59 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:47:24 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include "minishell.h"
 
 void	ft_freecommand(t_command *cmd)
 {

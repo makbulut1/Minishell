@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_create_prompt.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 12:27:21 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/27 12:28:46 by makbulut         ###   ########.fr       */
+/*   Created: 2022/06/23 16:36:08 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:46:05 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include <stdlib.h>
+#include "42-Libft/libft.h"
 
-void	ft_freearr_str(char **arr)
+char	*ft_create_prompt(void)
 {
-	ft_freearr((void **)arr, free);
+	char		*prompt;
+	char		*cwd;
+	int			len;
+
+	cwd = "\x1b[31mminishell % \x1b[0m";
+	len = ft_strlen(cwd);
+	prompt = ft_calloc(sizeof(char), len + 1);
+	ft_memmove(prompt, cwd, len);
+	return (prompt);
 }

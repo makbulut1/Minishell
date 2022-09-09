@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 13:59:00 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 16:51:31 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/03 21:44:59 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:45:51 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include "minishell.h"
 
 void	ft_closepipes(void)
 {

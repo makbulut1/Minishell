@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 22:51:53 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:05:42 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/02 23:47:07 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:47:32 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "minishell.h"
+#include <stdlib.h>
 
 void	ft_freestream(t_stream *stream)
 {

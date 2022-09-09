@@ -5,13 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 21:55:49 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 19:13:01 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/16 07:30:26 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:44:07 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <sys/wait.h>
 #include "minishell.h"
-#include <stdlib.h>
+#include "42-Libft/libft.h"
 
 static int	getheredocs(t_pipeline **pipes)
 {
@@ -24,7 +26,7 @@ static int	getheredocs(t_pipeline **pipes)
 		k = 0;
 		while (pipes[i]->commands[k])
 		{
-			if (ft_heredoc(pipes[i]->commands[k]))
+			if (!ft_heredoc(pipes[i]->commands[k]))
 				return (0);
 			if (!getheredocs(pipes[i]->commands[k]->subshells))
 				return (0);
@@ -50,7 +52,7 @@ static void	runcommands(t_command **cmds)
 	if (lastcommand != -1)
 	{
 		waitpid(lastcommand, &(g_mini->return_code), 0);
-		g_mini->return_code = (((g_mini->return_code) & 0xf00) >> 8);
+		g_mini->return_code = (((g_mini->return_code) & 0xff00) >> 8);
 	}
 	while (wait(NULL) != -1)
 		continue ;

@@ -20,7 +20,7 @@ char	*ft_create_prompt(void)
 	char		*cwd;
 	int			len;
 
-	cwd = "\x1b[31mminishell % \x1b[0m";
+	cwd = "minishell % ";
 	len = ft_strlen(cwd);
 	prompt = ft_calloc(sizeof(char), len + 1);
 	ft_memmove(prompt, cwd, len);

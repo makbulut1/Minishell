@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 18:23:53 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:24:18 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/22 12:40:25 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:48:16 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include "42-Libft/libft.h"
 
 int	ft_skipbrackets(t_token **tokens, int start, int end)
 {

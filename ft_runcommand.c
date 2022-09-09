@@ -5,16 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 17:01:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/04 06:52:00 by makbulut         ###   ########.fr       */
+/*   Created: 2022/06/30 19:05:08 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/07 18:30:35 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <sys/wait.h>
+#include "minishell.h"
+#include "42-Libft/libft.h"
 
-static void	check_errors(t_command *cmd, char *path)
+static void	checkerrors(t_command *cmd, char *path)
 {
 	if (ft_filexists(path))
 	{
@@ -30,12 +33,12 @@ static void	check_errors(t_command *cmd, char *path)
 
 char	*ft_path_controler(t_command *cmd, char *cmdpath)
 {
-	if ((ft_getenvindex("PATH") != -1) || (cmd->command[0] == '/'))
-		return (cmdpath = ft_find_in_path(cmd->command));
+	if (ft_getenvindex("PATH") != -1 || cmd->command[0] == '/')
+		return (cmdpath = ft_findinpath(cmd->command));
 	return (NULL);
 }
 
-static int	exec_process(t_command *cmd)
+static int	execprocess(t_command *cmd)
 {
 	char	*cmdpath;
 	pid_t	pid;
@@ -50,10 +53,10 @@ static int	exec_process(t_command *cmd)
 	pid = -1;
 	if (cmdpath)
 	{
-		if (ft_is_file(cmdpath))
-			pid = ft_init_process(cmd, cmdpath);
+		if (ft_isfile(cmdpath))
+			pid = ft_initprocess(cmd, cmdpath);
 		else
-			check_errors(cmd, cmdpath);
+			checkerrors(cmd, cmdpath);
 	}
 	else
 	{
@@ -76,6 +79,6 @@ int	ft_runcommand(t_command *cmd)
 	else if (!cmd->command)
 		pid = ft_initredirects(cmd);
 	else
-		pid = exec_process(cmd);
-	return (1);
+		pid = execprocess(cmd);
+	return (pid);
 }

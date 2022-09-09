@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 19:45:40 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/02 20:04:40 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/13 20:30:03 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:46:19 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "42-Libft/libft.h"
 
-static int	ft_echo_check(t_command *cmd, int i)
+static int	ft_echocheck(t_command *cmd, int i)
 {
 	if (cmd->arguments[1][0] != '-')
 		return (0);
@@ -34,7 +34,7 @@ int	ft_echo(t_command *command)
 		ft_putstr_fd("\n", command->out);
 		return (0);
 	}
-	checkreturn = ft_echo_check(command, 1);
+	checkreturn = ft_echocheck(command, 1);
 	if (checkreturn && !command->arguments[2])
 		return (0);
 	i = 1;

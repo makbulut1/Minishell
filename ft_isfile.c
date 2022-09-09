@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freearr.c                                          :+:      :+:    :+:   */
+/*   ft_isfile.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 14:10:33 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:24:46 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/26 12:31:44 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:54:43 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
-void	ft_freearr(void **arr, void (*f)(void *))
+int	ft_isfile(char *path)
 {
-	int	i;
+	struct stat	path_stat;
 
-	i = 0;
-	while (arr && arr[i])
-		f(arr[i++]);
-	free(arr);
+	stat(path, &path_stat);
+	return ((((path_stat.st_mode) & S_IFMT) == S_IFREG));
 }

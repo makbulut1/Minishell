@@ -5,37 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 12:00:40 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 14:05:15 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/03 18:06:26 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:53:33 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <signal.h>
+#include <sys/wait.h>
+#include <readline/readline.h>
 #include "minishell.h"
 #include "42-Libft/libft.h"
-#include <sys/wait.h>
-#include <unistd.h>
-#include <signal.h>
-#include <readline/readline.h>
 
 static void	heredoc_signalhandler(int sig)
 {
 	(void)sig;
-	exit (1);
+	exit(1);
 }
-
-// static int	ft_strcmp(char *str1, char *str2)
-// {
-// 	if (str1 && str2)
-// 	{
-// 		while (*str1 && *str2 && *str1 == *str2)
-// 		{
-// 			str1++;
-// 			str2++;
-// 		}
-// 		return (*str1 - *str2);
-// 	}
-// 	return (1);
-// }
 
 static void	heredocread(char *finish, int fd)
 {
@@ -69,7 +57,7 @@ static int	takeheredoc(t_command *cmd, char *finish)
 		close(p[0]);
 		heredocread(finish, p[1]);
 		close(p[1]);
-		exit(1);
+		exit(0);
 	}
 	close(p[1]);
 	waitpid(pid, &retcode, 0);
@@ -90,9 +78,7 @@ int	ft_heredoc(t_command *cmd)
 
 	i = 0;
 	while (cmd->heredocsteps && cmd->heredocsteps[i])
-	{
 		if (!takeheredoc(cmd, cmd->heredocsteps[i++]))
-			return (1);
-	}
-	return (0);
+			return (0);
+	return (1);
 }

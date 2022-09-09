@@ -98,12 +98,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i--;
 	return (ft_substr(s1, 0, i + 1));
 }
-
-//int main()
-//{
-//  char const c[]= "   xxxtripouille";
-//  char const d[]= " x";
-////  char *a = ft_strtrim("   xxxtripouille", );
-//  printf("%s", ft_strtrim(c, d));
-//  return(0);
-//}

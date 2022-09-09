@@ -37,15 +37,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-
-/*
-int main()
-{
-  char a[] = "Mehmet"; //6
-  char b[0xF0] ; //4
-
-  printf("%s\n", ft_memmove(NULL, NULL, 8));
-
-  //printf("%s", memmove(NULL, b, 8));
-}
-*/

@@ -5,11 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 13:52:31 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/02 14:54:32 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/01 16:32:28 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:47:16 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "minishell.h"
 
 void	ft_freearr_token(t_token **tokens)

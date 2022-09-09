@@ -5,11 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 18:37:06 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 10:32:46 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/15 19:10:09 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:52:20 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "minishell.h"
 #include "42-Libft/libft.h"
 
@@ -47,6 +48,8 @@ static char	*double_quotes(char *s)
 		return (ft_strdup("\"\""));
 	buffer = ft_calloc(len + 3, sizeof(char));
 	buffer[0] = '\"';
+	ft_memmove(s, buffer + 1, len);
+	buffer[len + 1] = '\"';
 	free(s);
 	return (buffer);
 }
@@ -78,7 +81,7 @@ void	ft_onlyexport(t_command *command)
 		{
 			key = ft_get_key(g_mini->env[i]);
 			value = ft_get_value(g_mini->env[i]);
-			value = double_quotes(g_mini->env[i]);
+			value = double_quotes(value);
 			ft_strappend(&key, "=");
 			ft_strappend(&key, value);
 			free(value);

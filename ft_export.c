@@ -5,11 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 17:44:15 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 19:02:53 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/14 20:29:01 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:46:36 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "minishell.h"
 #include "42-Libft/libft.h"
 
@@ -33,23 +34,23 @@ static void	set_reset(char *s)
 	ft_setenv(key, value);
 }
 
-int	ft_export(t_command *cmd)
+int	ft_export(t_command *command)
 {
-	int	i;
+	int		i;
 
 	i = 0;
-	if (!cmd->arguments[1])
-		ft_onlyexport(cmd);
+	if (!command->arguments[1])
+		ft_onlyexport(command);
 	else
 	{
-		while (cmd->arguments[++i])
+		while (command->arguments[++i])
 		{
-			if (ft_env_check(cmd->arguments[i]))
-				set_reset(cmd->arguments[i]);
+			if (ft_env_check(command->arguments[i]))
+				set_reset(command->arguments[i]);
 			else
 			{
 				ft_putstr_fd("bash: export: '", 2);
-				ft_putstr_fd(cmd->arguments[i], 2);
+				ft_putstr_fd(command->arguments[i], 2);
 				ft_putendl_fd("':not a valid identifier", 2);
 				return (1);
 			}

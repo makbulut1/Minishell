@@ -26,11 +26,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
-int main()
-{
-  char a[] = "Mehmet"; //6
-  char b[] = "Eren"; //4
-
-  printf("%s", ft_memcpy(b, a, 15));
-}*/

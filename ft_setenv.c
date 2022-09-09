@@ -5,13 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 13:26:40 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 16:40:21 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/01 19:41:29 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:48:53 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42-Libft/libft.h"
+#include <stdlib.h>
+#include <stdio.h>
 #include "minishell.h"
+#include "42-Libft/libft.h"
 
 static void	only_key(char *name)
 {
@@ -39,7 +41,7 @@ void	ft_setenv(char *name, char *value)
 	if (!__setenv(name, value))
 		return ;
 	namelen = ft_strlen(name);
-	valuelen = ft_strlen(name);
+	valuelen = ft_strlen(value);
 	var = ft_calloc(sizeof(char), namelen + valuelen + 2);
 	ft_memcpy(var, name, namelen);
 	var[namelen] = '=';

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 15:43:35 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/31 13:10:41 by makbulut         ###   ########.fr       */
+/*   Created: 2022/06/25 16:23:22 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:52:56 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 int	ft_isdelimitter(char chr)
 {
 	return (ft_isspace(chr) || \
-			chr == '>' || \
 			chr == '<' || \
-			chr == '|' );
+			chr == '>' || \
+			chr == '|' || \
+			chr == '(' || \
+			chr == ')');
 }

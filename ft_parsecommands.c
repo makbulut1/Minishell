@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 21:58:36 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/28 07:16:55 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/02 13:03:24 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:55:52 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <stdlib.h>
+#include "42-Libft/libft.h"
 
 static void	*erroroccured(t_command **commands, t_token *token)
 {

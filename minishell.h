@@ -6,7 +6,7 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/04 05:57:06 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:57:40 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void		ft_freearr(void **arr, void (*f)(void *));
 char		*ft_create_prompt(void);
 char		*ft_getinput(void);
 void		ft_execline(char *input);
+t_token		**ft_gettokens(char *str);
 t_pipeline	**ft_parsepipelines(t_token **tokens, int start, int end);
 t_token		*ft_getnexttoken(char *str);
 t_token		*ft_getonechartoken(enum e_tokentype type, int *i, char chr);
@@ -100,7 +101,7 @@ t_token		*ft_gettwochartoken(char *str, int *i, enum e_tokentype type, \
 																char chr);
 int			ft_isdelimitter(char chr);
 t_token		*ft_getwordtoken(char *str, int *i);
-int			ft_isquate(char chr);
+int			ft_isquote(char chr);
 void		ft_addarr(void ***arr, void *new);
 int			ft_arrlen(void **arr);
 t_token		*ft_createtoken(char *data, enum e_tokentype type);
@@ -172,12 +173,14 @@ void		ft_get_end_numbers_quote(char *s, int *end);
 void		ft_get_len_of_word(char *s, int *end);
 char		*ft_getenv(char *name);
 void		ft_clean_array(t_command *cmd);
-char		*ft_find_in_path(char *file);
+char		*ft_findinpath(char *file);
 int			ft_ispath(char *file);
-char		*ft_find_in_path(char *file);
 int			ft_filexists(char *path);
-int			ft_is_file(char *path);
-int			ft_init_process(t_command *cmd, char *cmdpath);
+int			ft_isfile(char *path);
+int			ft_initprocess(t_command *cmd, char *cmdpath);
 void		ft_puterrln(char *msg, char *data);
+void		ft_connectsignals(void);
+void		ft_signalhandler(int sig);
+void		ft_addarr_token(t_token ***arr, t_token *new);
 
 #endif

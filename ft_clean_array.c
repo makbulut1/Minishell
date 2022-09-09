@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 13:23:17 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/04 06:02:54 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/27 10:46:05 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/20 15:11:33 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include <stdio.h>
 #include "42-Libft/libft.h"
 
-static void	remove_null_string(t_command *cmd, int total_zero)
+static void	remove_nullstring(t_command *cmd, int total_zero)
 {
 	int		i;
 	int		j;
@@ -50,5 +51,5 @@ void	ft_clean_array(t_command *cmd)
 		if (ft_strlen(cmd->arguments[i]) == 0)
 			total_zero++;
 	}
-	remove_null_string(cmd, total_zero);
+	remove_nullstring(cmd, total_zero);
 }

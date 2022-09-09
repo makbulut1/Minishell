@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 13:01:16 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/02 17:25:57 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/08 00:06:33 by            #+#    #+#             */
+/*   Updated: 2022/08/21 13:23:41 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <unistd.h>
+#include <errno.h>
+#include <string.h>
 #include "minishell.h"
 #include "42-Libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
 
 static char	*get_pwd(void)
 {
@@ -26,7 +26,7 @@ static char	*get_pwd(void)
 	return (buffer);
 }
 
-static void	change_env_pat(void)
+static void	change_env_path(void)
 {
 	int		pwdindex;
 	char	*value;
@@ -75,5 +75,5 @@ int	ft_cd(t_command *cmd)
 		}
 	}
 	return (0);
-	change_env_pat();
+	change_env_path();
 }

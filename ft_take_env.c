@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 07:57:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 20:59:51 by makbulut         ###   ########.fr       */
+/*   Created: 2022/06/26 01:05:04 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:48:30 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "42-Libft/libft.h"
 #include "minishell.h"
 
-static int	ft_how_many_env_chars(char *s)
+static int	ft_howmany_envchars(char *s)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] && ft_is_env(s[i]))
+	while (ft_is_env(s[i]) && s[i])
 		i++;
 	return (i);
 }
@@ -37,7 +37,7 @@ static char	*ft_take_env(char *s)
 			return (ft_substr(s, i, 2));
 		else if (s[i] == '$' && s[i + 1] && ft_is_env(s[i + 1]))
 		{
-			env_strlen = ft_how_many_env_chars(s + i + 1);
+			env_strlen = ft_howmany_envchars(s + i + 1);
 			return (ft_substr(s, i, env_strlen + 1));
 		}
 		i++;

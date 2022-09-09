@@ -5,11 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 20:09:19 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/04 05:44:14 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/17 01:22:57 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/02 20:09:54 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "minishell.h"
 #include "42-Libft/libft.h"
 

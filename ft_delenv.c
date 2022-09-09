@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 20:28:29 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 20:36:56 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/01 19:40:08 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:46:16 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42-Libft/libft.h"
 #include "minishell.h"
+#include "42-Libft/libft.h"
 
 void	ft_delenv(char *name)
 {

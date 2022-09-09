@@ -6,11 +6,11 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 20:19:18 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/04 06:12:54 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/01/08 14:43:24 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {

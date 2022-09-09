@@ -5,13 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 17:08:55 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/04 05:57:06 by makbulut         ###   ########.fr       */
+/*   Created: 2022/07/25 23:30:32 by makbulut          #+#    #+#             */
+/*   Updated: 2022/08/21 13:23:41 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include "minishell.h"
+#include "42-Libft/libft.h"
 
 static void	helper(t_command *cmd)
 {

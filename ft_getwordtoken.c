@@ -5,14 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 15:46:46 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/03 13:10:23 by makbulut         ###   ########.fr       */
+/*   Created: 2022/06/25 16:25:33 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:53:29 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "42-Libft/libft.h"
-#include <stdlib.h>
 
 static int	getwordlen(char *str, int *i)
 {
@@ -22,7 +21,7 @@ static int	getwordlen(char *str, int *i)
 	len = 0;
 	while (str[*i + len])
 	{
-		if (ft_isquate(str[*i + len]))
+		if (ft_isquote(str[*i + len]))
 		{
 			block = str[*i + (len++)];
 			while (str[*i + len] && str[*i + len] != block)
@@ -42,9 +41,9 @@ static int	getwordlen(char *str, int *i)
 
 t_token	*ft_getwordtoken(char *str, int *i)
 {
+	char	*data;
 	int		j;
 	int		k;
-	char	*data;
 
 	j = *i;
 	if (!ft_isdelimitter(str[*i]))

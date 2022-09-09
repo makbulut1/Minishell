@@ -5,11 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 18:52:14 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/01 18:53:52 by makbulut         ###   ########.fr       */
+/*   Created: 2022/06/15 08:32:46 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/05 13:48:13 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "42-Libft/libft.h"
 
 void	ft_strappend(char **str, char *appendstr)
