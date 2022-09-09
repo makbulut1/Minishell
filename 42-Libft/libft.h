@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 17:31:33 by ncolomer          #+#    #+#             */
-/*   Updated: 2022/09/01 20:37:43 by makbulut         ###   ########.fr       */
+/*   Created: 2022/09/01 17:31:33 by makbulut          #+#    #+#             */
+/*   Updated: 2022/09/09 15:04:37 by akarabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 char			*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
+
+char			*ft_strstr(char *haystack, char *needle);
 
 char			*ft_strrchr(const char *s, int c);
 

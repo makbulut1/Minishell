@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/05 11:57:40 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/09 15:05:11 by akarabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,5 +182,20 @@ void		ft_puterrln(char *msg, char *data);
 void		ft_connectsignals(void);
 void		ft_signalhandler(int sig);
 void		ft_addarr_token(t_token ***arr, t_token *new);
+
+//wilcard
+int			ft_parse_wildcard(t_command *command, int index, int t_index);
+int			ft_check_star(t_command *command);
+int			ft_acheck(t_command *command);
+int			ft_first_star(t_command *command);
+int			ft_star_state(char *str);
+char		*ft_only_word(char *str);
+int			ft_total_words(char *str, int index, int count);
+char		*ft_strstr_last(char *haystack, char *needle);
+void		ft_db_stars_secondpart(t_command *command, int i, int j, char *fs);
+void		ft_left_star_secondpart(t_command *cmd, int i, int j, char *fs);
+char		*ft_revstrstr(char *haystack, char *needle);
+int			ft_opendir(t_command *cmd);
+void		ft_arrfix(t_command *cmd);
 
 #endif

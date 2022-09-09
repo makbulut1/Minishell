@@ -13,7 +13,8 @@ SRC = 	ft_closepipes.c         ft_export.c             ft_get_key.c            f
 		ft_cd.c                 ft_env_check.c          ft_freepipeline.c       ft_heredoc.c            ft_ispath.c             ft_parsesubshell.c      ft_signalhandler.c \
 		ft_clean_array.c        ft_execline.c           ft_freestream.c         ft_initbuiltin.c        ft_isquote.c            ft_parsewordtoken.c     ft_skipbrackets.c \
 		ft_clearsignals.c       ft_exit.c               ft_freetoken.c          ft_initprocess.c        ft_isspace.c            ft_puterrln.c           ft_strappend.c \
-		ft_take_env.c			ft_unset.c				minishell.c
+		ft_take_env.c			ft_unset.c				minishell.c				ft_wilcard_parse.c		ft_wilcard_parse_utils.c ft_wilcard_parse_utils2.c \
+		ft_wilcard_parse_utils3.c ft_opendir.c          ft_first_star.c         ft_arrfix.c
 
 CC = gcc
 

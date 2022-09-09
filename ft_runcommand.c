@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_runcommand.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 19:05:08 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/07 18:30:35 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/09/09 15:10:18 by akarabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	ft_runcommand(t_command *cmd)
 {
 	pid_t	pid;
 
+	ft_parse_wildcard(cmd, 0, 0);
 	ft_pars_quote(cmd);
 	if (cmd->subshells)
 		pid = ft_initsubshell(cmd);
