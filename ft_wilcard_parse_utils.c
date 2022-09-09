@@ -79,23 +79,14 @@ char	*ft_strstr_last(char *haystack, char *needle)
 int	ft_check_star(t_command *command)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	if (command->subshells)
 		return (0);
 	if (command->arguments && ft_strchr(command->arguments[0], '*'))
 		ft_first_star(command);
-	while (command->arguments[i])
-	{
-		j = 0;
-		while (command->arguments[i][j])
-		{
-			if (command->arguments[i][j] == '*')
-				return (1);
-			j++;
-		}
-		i++;
-	}
+	while (command->arguments && command->arguments[++i])
+		if (ft_strchr(command->arguments[i], '*'))
+			return (1);
 	return (0);
 }
