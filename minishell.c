@@ -23,7 +23,7 @@ static void	init_g_mini(char **env)
 	g_mini->env = ft_copyarr_str(env);
 }
 
-static void	loop(void)
+static void	miniloop(void)
 {
 	char		*input;
 
@@ -48,7 +48,7 @@ int	main(int ac, char **av, char **env)
 	init_g_mini(env);
 	ft_connectsignals();
 	if (ac == 1)
-		loop();
+		miniloop();
 	exitcode = g_mini->return_code;
 	ft_freearr_str(g_mini->env);
 	free(g_mini);
