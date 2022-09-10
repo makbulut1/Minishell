@@ -6,7 +6,7 @@
 /*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 20:07:52 by akarabay          #+#    #+#             */
-/*   Updated: 2022/09/09 14:38:11 by akarabay         ###   ########.fr       */
+/*   Updated: 2022/09/10 20:41:30 by akarabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	normal_words(char ***arr, char **arg, int *index, int t_index)
 	arr[t_index] = ft_calloc(sizeof(char *), len + 2);
 	arr[t_index][0] = arg[0];
 	len = 1;
-	while (*arg[*index] && !ft_strchr(arg[*index], '*'))
+	while (arg[*index] && !ft_strchr(arg[*index], '*'))
 		arr[t_index][len++] = arg[(*index)++];
 	(*index)--;
 }
