@@ -1,3 +1,24 @@
+_END		=	\e[0m
+_BOLD		=	\e[1m
+_UNDER		=	\e[4m
+_REV		=	\e[7m
+_GREY		=	\e[30m
+_RED		=	\e[31m
+_GREEN		=	\e[32m
+_YELLOW		=	\e[33m
+_BLUE		=	\e[34m
+_PURPLE		=	\e[35m
+_CYAN		=	\e[36m
+_WHITE		=	\e[37m
+_IGREY		=	\e[40m
+_IRED		=	\e[41m
+_IGREEN		=	\e[42m
+_IYELLOW	=	\e[43m
+_IBLUE		=	\e[44m
+_IPURPLE	=	\e[45m
+_ICYAN		=	\e[46m
+_IWHITE		=	\e[47m
+
 NAME = minishell
 
 SRC = 	ft_closepipes.c         ft_export.c             ft_get_key.c            ft_initredirects.c      ft_onlyexport.c         ft_puterrno.c           ft_strlenchr.c	\
@@ -36,21 +57,28 @@ all : $(NAME)
 
 $(NAME) : $(DIR_OBJS)
 	@$(MAKE) -C 42-Libft
+	@printf "make 42-Libft"
+	@printf "\033[K\r$(_GREEN) All files compiled into 'DIR_OBJS'. $(_END)✅\n"
 	@$(CC) $(CFLAG)  $(DIR_OBJS) $(LREADLINE) -o $(NAME) $(LIBFT)
+	@printf "\033[K\r$(_GREEN) Executable '$(NAME)' created. $(_END)✅\n"
 
 obj/%.o : ./%.c
 	@$(MKDIR) -p $(shell dirname $@)
+	@printf "\033[K\r $(_YELLOW)Compiling $< $(_END)⌛ "
 	@$(CC) $(CFLAG)  $(INCLUDE) -c $< -o $@
 
 re : fclean all
 
 clean :
 	@make clean -C 42-Libft
+	@printf "\033[K\r$(_RED) '"$(DIR_OBJS)"' has been deleted. $(_END)🗑️\n"
 	@rm -rf  obj *.o
 
 fclean :
 	@make fclean -C 42-Libft
 	@rm -rf  obj *.o $(NAME)
+	@printf "\033[K\r$(_RED) '"$(NAME)"' has been deleted. $(_END)🗑️\n"
+
 norm :
 	norminette
 
