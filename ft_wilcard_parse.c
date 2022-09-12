@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_wilcard_parse.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 20:07:52 by akarabay          #+#    #+#             */
-/*   Updated: 2022/09/10 20:41:30 by akarabay         ###   ########.fr       */
+/*   Updated: 2022/09/12 23:27:58 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,29 +102,28 @@ static void	last_step(char ***arr, char *command, t_command *cmd, int f_index)
 
 int	ft_parse_wildcard(t_command *command, int index, int t_index)
 {
-	int		len;
-	char	***tmp;
-	char	**tmp2;
+	t_wildcard	wildcard;
 
 	if (!ft_check_star(command))
 		return (0);
-	len = total_star(command);
-	tmp = ft_calloc(sizeof(char **), len + 1);
-	tmp2 = command->arguments;
-	while (tmp2[++index])
+	wildcard.len = total_star(command);
+	wildcard.tmp = ft_calloc(sizeof(char **), wildcard.len + 1);
+	wildcard.tmp2 = command->arguments;
+	while (wildcard.tmp2[++index])
 	{
-		if (ft_strchr(tmp2[index], '*'))
+		if (ft_strchr(wildcard.tmp2[index], '*'))
 		{
-			tmp[t_index] = ft_calloc(sizeof(char *), 3);
-			command->arguments = tmp[t_index++];
-			command->arguments[0] = tmp2[0];
-			command->arguments[1] = tmp2[index];
+			wildcard.tmp[t_index] = ft_calloc(sizeof(char *), 3);
+			command->arguments = wildcard.tmp[t_index++];
+			command->arguments[0] = wildcard.tmp2[0];
+			command->arguments[1] = wildcard.tmp2[index];
 			ft_acheck(command);
-			tmp[t_index -1] = command->arguments;
+			wildcard.tmp[t_index -1] = command->arguments;
 		}
 		else
-			normal_words(tmp, tmp2, &index, t_index++);
+			normal_words(wildcard.tmp, wildcard.tmp2, &index, t_index++);
 	}
-	last_step(tmp, tmp2[0], command, 1);
+	last_step(wildcard.tmp, wildcard.tmp2[0], command, 1);
+	free(wildcard.tmp2);
 	return (0);
 }

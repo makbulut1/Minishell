@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:39:59 by makbulut          #+#    #+#             */
-/*   Updated: 2022/09/09 15:05:11 by akarabay         ###   ########.fr       */
+/*   Updated: 2022/09/12 23:26:27 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@
 # define BT_UNSET "unset"
 
 # define BT_ENV "env"
+
+typedef struct s_wildcard
+{
+	int		len;
+	char	***tmp;
+	char	**tmp2;
+}				t_wildcard;
+
 
 enum e_tokentype {
 	WORD,

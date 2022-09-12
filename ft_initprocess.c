@@ -27,7 +27,7 @@ int	ft_initprocess(t_command *cmd, char *cmdpath)
 		if (!ft_open_reds(cmd))
 		{
 			g_mini->exitflag = 1;
-			return (-1);
+			exit(-1);
 		}
 		ft_connectio(cmd);
 		ft_closepipes();
@@ -36,7 +36,7 @@ int	ft_initprocess(t_command *cmd, char *cmdpath)
 		{
 			ft_puterrno_msg(cmd->command);
 			g_mini->exitflag = 1;
-			return (-1);
+			exit(-1);
 		}
 	}
 	return (pid);

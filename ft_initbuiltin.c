@@ -25,10 +25,10 @@ int	ft_initbuiltin(t_command *cmd)
 		{
 			g_mini->exitflag = 1;
 			if (!ft_open_reds(cmd))
-				return (-1);
+				exit(-1);
 			g_mini->return_code = ft_runbuiltin(cmd);
 			ft_closepipes();
-			return (-1);
+			exit(-1);
 		}
 		return (pid);
 	}

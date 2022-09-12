@@ -43,11 +43,11 @@ int	ft_initsubshell(t_command *cmd)
 		if (!ft_open_reds(cmd))
 		{
 			g_mini->exitflag = 1;
-			return (-1);
+			exit(-1);
 		}
 		helper(cmd);
 		g_mini->exitflag = 1;
-		return (-1);
+		exit(-1);
 	}
 	return (pid);
 }
